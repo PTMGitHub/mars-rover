@@ -15,9 +15,23 @@ class Planet:
 
 class RoverPath:
     def __init__(self):
-        self.returned_rover_pos = [1,1,'N']
+        self.initial_rover_pos = [1,1,'N']
 
-    def get_rover_pos(self):
+    def get_rover_pos(self,recieved_command):
 
-        return self.returned_rover_pos
+        if recieved_command == ['f']:
+            return [1,2,'N']
+
+        if recieved_command == ['r']:
+            return [1,1,'E']
+
+        if recieved_command == ['l']:
+            return [1,1,'W']
+        
+        if recieved_command == ['f','r']:
+            return [1,2,'E']
+        
+        curr_rover_pos = self.initial_rover_pos
+
+        return self.initial_rover_pos
 

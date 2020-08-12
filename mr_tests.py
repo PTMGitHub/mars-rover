@@ -23,6 +23,30 @@ class MarsRoverTest(unittest.TestCase):
 
     def test_current_position(self):
         expected_current_pos = [1,1,'N']
+        passed_command = ''
         rover_pos = mr_objects.RoverPath()
-        self.assertEqual(rover_pos.get_rover_pos(),expected_current_pos)
+        self.assertEqual(rover_pos.get_rover_pos(passed_command),expected_current_pos)
     
+    def test_move_rover_forward_by_one(self):
+        expected_current_pos = [1,2,'N']
+        passed_command = ['f']
+        rover_pos = mr_objects.RoverPath()
+        self.assertEqual(rover_pos.get_rover_pos(passed_command),expected_current_pos)
+
+    def test_rover_turn_right(self):
+        expected_current_pos = [1,1,'E']
+        passed_command = ['r']
+        rover_pos = mr_objects.RoverPath()
+        self.assertEqual(rover_pos.get_rover_pos(passed_command),expected_current_pos)
+
+    def test_rover_turn_left(self):
+        expected_current_pos = [1,1,'W']
+        passed_command = ['l']
+        rover_pos = mr_objects.RoverPath()
+        self.assertEqual(rover_pos.get_rover_pos(passed_command),expected_current_pos)
+
+    def test_rover_forward_turn_right(self):
+        expected_current_pos = [1,2,'E']
+        passed_command = ['f','r']
+        rover_pos = mr_objects.RoverPath()
+        self.assertEqual(rover_pos.get_rover_pos(passed_command),expected_current_pos)
