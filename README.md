@@ -26,11 +26,3 @@ Kata Log Rocks: Mars Rover
 
 
 
-#Implementation Code
-class Scoreboard:
-    
-    def score_function(self):
-        return self.outcome
-    
-    def __init__(self):
-        self.outcome = 0
